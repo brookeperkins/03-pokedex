@@ -23,7 +23,6 @@ render() {
             selectedPokemon ?
 
             <div className={styles.pokeDetails}> 
-            {/* not sure how to style */}
                 <h2 className={styles.h2}>Look! It's {this.state.selectedPokemon.pokemon}!</h2>
                 <img src={this.state.selectedPokemon.url_image} alt={this.state.selectedPokemon.pokemon}/>
                 <p> TYPE: {this.state.selectedPokemon.type_1}</p>

@@ -50,11 +50,6 @@ main {
   background-color: var(--c3);
 }
 
-/* .searchDiv {
-  border: solid red 2px;
-  not sure how to make the search bar go back without the poke displaying beneath
-} */
-
 input {
   display: flex;
   flex-direction: column;
@@ -93,14 +88,6 @@ button {
   padding-left: 150px;
   padding-right: 150px;
 }
-
-/* .pokeDetais {
-  border: solid 2px var(--c5);
-  font-family: 'Press Start 2P';
-  font-size: 1.2em;
-  padding-left: 50px;
-  color: var(--c5);
-} */
 
 h2 {
 font-family: 'Press Start 2P';

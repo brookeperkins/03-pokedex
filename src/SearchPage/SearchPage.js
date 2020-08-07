@@ -26,7 +26,6 @@ export default class Search extends React.Component {
       
       return (
         <div className={styles.main}>
-          {/* <div className={styles.searchDiv}> */}
             <input onChange={(e) => this.setState({ search: e.target.value})} />
             <select onChange={(e) => { this.setState({ searchBy: e.target.value })} }>
               <option value='pokemon'>name</option>
@@ -35,7 +34,6 @@ export default class Search extends React.Component {
               <option value='defense'>defense</option>
             </select>
             <button onClick={this.handleClick}>Find Pokemon!</button>
-            {/* </div> */}
             {
               isLoading 
                 ? <p className={styles.spin}>LOADING</p> 

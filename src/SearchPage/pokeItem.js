@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import './PokeItem.module.css';
 
 export default class PokeItem extends React.Component {
     render() {
