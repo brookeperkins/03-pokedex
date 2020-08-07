@@ -1,16 +1,81 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 body {
-  
   --c1: hsla(174, 21%, 20%, 1);
   --c2: hsla(184, 66%, 28%, 1);
   --c3: hsla(22, 41%, 88%, 1);
   --c4: hsla(6, 57%, 49%, 1);
   --c5: hsla(7, 53%, 31%, 1);
 
-  background-color: var(--color4);
+  background-color: var(--c2);
 }
 
-h1{
-  background-color: var(--color1);
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: var(--c4);
+  font-family: 'Press Start 2P';
+  font-size: .8em;
+  padding: 20px;
+  border: solid 10px var(--c5);
+  margin: 10px;
+  color: var(--c3);
+}
+
+main {
+  margin: 10px;
+  display: grid;
+  grid-template-columns: 15% 85%;
+  grid-template-areas: a b c d e;
+}
+
+.search {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+  border: solid 10px var(--c5);
+  background-color: var(--c3);
+}
+
+input {
+  border: solid 4px var(--c4);
+}
+
+button {
+  border-radius: 5px;
+  padding: 5px;
+  font-family: 'Press Start 2P';
+  font-size: .5em;
+  margin-top: 10px;
+}
+
+.pokeDisplay {
+  border: solid 10px var(--c5);
+  margin-left: 20px;
+  background-color: var(--c3);
+}
+
+h2 {
+font-family: 'Press Start 2P';
+font-size: 4em;
+padding-left: 50px;
+color: var(--c5);
+}
+
+img {
+  height: 200px;
+  width: 200px;
+}
+
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: var(--c4);
+  border: solid 10px var(--c5);
+  margin: 10px;
+  color: var(--c3);
+  font-family: 'Press Start 2P';
 }
