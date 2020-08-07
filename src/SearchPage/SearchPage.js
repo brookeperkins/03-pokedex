@@ -25,7 +25,8 @@ export default class Search extends React.Component {
       const { isLoading, pokeState } = this.state;
       
       return (
-        <div>
+        <div className={styles.main}>
+          {/* <div className={styles.searchDiv}> */}
             <input onChange={(e) => this.setState({ search: e.target.value})} />
             <select onChange={(e) => { this.setState({ searchBy: e.target.value })} }>
               <option value='pokemon'>name</option>
@@ -33,13 +34,14 @@ export default class Search extends React.Component {
               <option value='attack'>attack</option>
               <option value='defense'>defense</option>
             </select>
-            <button onClick={this.handleClick}>Fetch Pokemon!</button>
+            <button onClick={this.handleClick}>Find Pokemon!</button>
+            {/* </div> */}
             {
               isLoading 
                 ? <p className={styles.spin}>LOADING</p> 
                 : pokeState.map(poke => <PokeItem pokemon={poke} />)
             }
-          </div>
+        </div>
       );
     }
   }

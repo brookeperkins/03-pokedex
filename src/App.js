@@ -19,12 +19,12 @@ export default class App extends React.Component {
         <Header />
         <Router>
           <nav>
-              <li><Link to="/">Home</Link></li>
-              <li><Link to="/PokemonDetails/">Pokemon Details</Link></li>
+              <Link to="/">Home</Link>
+              <Link to="/PokemonDetails/">Pokémon Details</Link>
           </nav>
           <main>
           <Switch>
-              <Route 
+              <Route
                   //page with search bar/homepage
                   path="/" 
                   exact

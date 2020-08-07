@@ -23,32 +23,65 @@ header {
   color: var(--c3);
 }
 
-main {
+nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  border: solid 10px var(--c1);
+  list-style-type: none;
+  padding: 20px;
   margin: 10px;
-  display: grid;
-  grid-template-columns: 15% 85%;
-  grid-template-areas: a b c d e;
+  font-family: 'Press Start 2P';
+  letter-spacing: 5px;
+  font-size: 1.2em;
+  background-color: var(--c3);
 }
 
-.search {
-  height: 80vh;
+main {
+  margin: 10px;
   display: flex;
   flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  height: 60vh;
   padding: 50px;
   border: solid 10px var(--c5);
   background-color: var(--c3);
 }
 
+/* .searchDiv {
+  border: solid red 2px;
+} */
+
 input {
-  border: solid 4px var(--c4);
+  display: flex;
+  flex-direction: column;
+  
+  border: solid 4px var(--c1);
+  margin-bottom: 5px;
+  font-size: 1.2em;
+}
+
+select {
+  display: flex;
+  flex-direction: column;
+  border: solid 2px var(--c1);
+  background-color: var(--c1);
+  color: var(--c3);
+  font-size: 1.2em;
 }
 
 button {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
   border-radius: 5px;
   padding: 5px;
   font-family: 'Press Start 2P';
-  font-size: .5em;
+  font-size: 1em;
   margin-top: 10px;
+  margin-bottom: 50px;
 }
 
 .pokeDisplay {
@@ -82,3 +115,4 @@ footer {
   color: var(--c3);
   font-family: 'Press Start 2P';
 }
+
