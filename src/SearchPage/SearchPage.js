@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from '../App.module.css'
+import styles from '../App.css'
 import request from 'superagent';
 import PokeItem from './PokeItem.js'
 

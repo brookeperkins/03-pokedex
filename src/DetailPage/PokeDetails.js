@@ -1,6 +1,6 @@
 import React from 'react';
 import request from 'superagent';
-import styles from '../App.module.css';
+import styles from '../App.css';
 
 export default class PokeDetails extends React.Component {
  state = {
