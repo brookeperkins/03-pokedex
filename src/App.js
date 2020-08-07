@@ -20,19 +20,17 @@ export default class App extends React.Component {
         <Router>
           <nav>
               <Link to="/">Home</Link>
-              <Link to="/PokemonDetails/">Pokémon Details</Link>
+              <Link to="/PokeDetails/">Pokémon Details</Link>
           </nav>
           <main>
           <Switch>
               <Route
-                  //page with search bar/homepage
                   path="/" 
                   exact
                   render={(routerProps) => <Search {...routerProps} />} 
               />
               <Route 
-                  //page with userPokemon PokemonDetails
-                  path="/PokemonDetails/:userPokemon" 
+                  path="/PokeDetails/:userPokemon" 
                   exact
                   render={(routerProps) => <PokeDetails {...routerProps} />} 
               />

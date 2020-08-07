@@ -44,7 +44,7 @@ main {
   flex-direction: column;
   justify-content: start;
   align-items: center;
-  height: 60vh;
+  height: auto;
   padding: 50px;
   border: solid 10px var(--c5);
   background-color: var(--c3);
@@ -52,6 +52,7 @@ main {
 
 /* .searchDiv {
   border: solid red 2px;
+  not sure how to make the search bar go back without the poke displaying beneath
 } */
 
 input {
@@ -93,9 +94,17 @@ button {
   padding-right: 150px;
 }
 
+/* .pokeDetais {
+  border: solid 2px var(--c5);
+  font-family: 'Press Start 2P';
+  font-size: 1.2em;
+  padding-left: 50px;
+  color: var(--c5);
+} */
+
 h2 {
 font-family: 'Press Start 2P';
-font-size: 4em;
+font-size: 1.2em;
 padding-left: 50px;
 color: var(--c5);
 }
@@ -103,6 +112,10 @@ color: var(--c5);
 img {
   height: 200px;
   width: 200px;
+}
+
+p {
+  font-family: 'Press Start 2P';
 }
 
 footer {
@@ -115,4 +128,3 @@ footer {
   color: var(--c3);
   font-family: 'Press Start 2P';
 }
-
