@@ -8,8 +8,8 @@ import {
 } from 'react-router-dom';
 import Header from './Header.js';
 import Footer from './Footer.js';
-import Search from './SearchPage/search.js';
-import PokeDetails from './PokeDetails.js';
+import Search from './SearchPage/SearchPage.js';
+import PokeDetails from './DetailPage/PokeDetails.js';
 
 export default class App extends React.Component {
   

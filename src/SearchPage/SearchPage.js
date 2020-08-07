@@ -1,7 +1,7 @@
 import React from 'react'
-import '../App.module.css'
+import styles from '../App.module.css'
 import request from 'superagent';
-import PokeItem from './pokeItem.js'
+import PokeItem from './PokeItem.js'
 
 export default class Search extends React.Component {
     state = { 
