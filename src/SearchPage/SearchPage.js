@@ -51,9 +51,7 @@ export default class Search extends React.Component {
       this.props.history.push('?' + params.toString())    
     }
     
-    handleClick = async (e) => {
-      e.preventDefault();
-
+    handleClick = async () => {
       await this.setState({ currentPage: 1 })
       await this.makeRequest()
     }
@@ -63,8 +61,10 @@ export default class Search extends React.Component {
     handleSearchBy = (e) => { this.setState({ searchBy: e.target.value })}
     
     handleNextClick = async () => {
+      console.log('clickkkkk')
       await this.setState({ currentPage: Number(this.state.currentPage) + 1 })
       await this.makeRequest();
+      
     }
     
     handlePrevClick = async () => { 
@@ -93,7 +93,7 @@ export default class Search extends React.Component {
           
             {
             isLoading ? <p>Loading</p> :
-            <PokeList handleNextClick={this.handleNextClick} handlePrevClick={this.handlePrevClick} currentPage={currentPage} pokeState={pokeState} totalPages={totalPages}/>
+            <PokeList handleNext={this.handleNextClick} handlePrev={this.handlePrevClick} currentPage={currentPage} pokeState={pokeState} totalPages={totalPages}/>
             }
         </div>
       );
