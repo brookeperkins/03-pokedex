@@ -4,7 +4,7 @@ import PokeItem from './PokeItem.js';
 class PokeList extends React.Component {
     render() { 
         const {
-            pokemons,
+            pokeState,
             handlePrev,
             handleNext,
             currentPage,
@@ -13,7 +13,7 @@ class PokeList extends React.Component {
         return (
             <section>
                 {
-                    pokemons.length > 0 && <div>
+                    pokeState.length > 0 && <div>
                         {
                             Number(currentPage) !== 1 && <button onClick={handlePrev}>Prev</button>
                         }{
@@ -23,7 +23,7 @@ class PokeList extends React.Component {
                     </div>
                 }
                 <ul>
-                    {pokemons.map(pokemon => <PokeItem pokemon={pokemon} />)}
+                    {pokeState.map(pokemon => <PokeItem pokemon={pokemon} />)}
                 </ul>
             </section>
         );

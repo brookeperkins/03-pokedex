@@ -27,7 +27,7 @@ export default class Search extends React.Component {
           currentPage: page,
           search: search
       })
-
+    }
       this.makeRequest()
     }
     
@@ -88,16 +88,14 @@ export default class Search extends React.Component {
       } = this.state;
   
     return (
-    <body>
-      <div className={styles.main}>
-          <SearchBar handleClick={this.handleClick} handleChange={this.handleChange} handleSearchBy={this.handleSearchBy} search={search} searchBy={searchBy}/>
+        <div className={styles.main}>
+            <SearchBar handleClick={this.handleClick} handleChange={this.handleChange} handleSearchBy={this.handleSearchBy} search={search} searchBy={searchBy}/>
           
-          {
-          isLoading ? <p>Loading</p> :
-          <PokeList handleNextClick={this.handleNextClick} handlePrevClick={this.handlePrevClick} currentPage={currentPage} pokeState={pokeState} totalPages={totalPages}/>
-          }
-      </div>
-    </body>
+            {
+            isLoading ? <p>Loading</p> :
+            <PokeList handleNextClick={this.handleNextClick} handlePrevClick={this.handlePrevClick} currentPage={currentPage} pokeState={pokeState} totalPages={totalPages}/>
+            }
+        </div>
       );
     }
   }
