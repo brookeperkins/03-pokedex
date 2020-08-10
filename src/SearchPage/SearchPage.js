@@ -94,7 +94,7 @@ export default class Search extends React.Component {
           
           {
           isLoading ? <p>Loading</p> :
-          <PokemonList handleNextClick={this.handleNextClick} handlePrevClick={this.handlePrevClick} currentPage={currentPage} pokeState={pokeState} totalPages={totalPages}/>
+          <PokeList handleNextClick={this.handleNextClick} handlePrevClick={this.handlePrevClick} currentPage={currentPage} pokeState={pokeState} totalPages={totalPages}/>
           }
       </div>
     </body>
