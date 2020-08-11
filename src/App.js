@@ -15,7 +15,7 @@ export default class App extends React.Component {
   
   render() {
     return (
-      <body>
+      <>
         <Header />
         <Router>
           <nav>
@@ -38,7 +38,7 @@ export default class App extends React.Component {
           </main>
         </Router>
         <Footer />
-      </body>
+      </>
     )
   }
 }

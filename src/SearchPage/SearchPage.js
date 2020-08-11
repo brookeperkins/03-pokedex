@@ -1,46 +1,101 @@
 import React from 'react'
 import styles from '../App.css'
 import request from 'superagent';
-import PokeItem from './PokeItem.js';
+import PokeList from './PokeList.js'
+import SearchBar from './SearchBar.js'
 
 export default class Search extends React.Component {
     state = { 
       search: '',
       searchBy: 'pokemon',
       isLoading: false,
-      pokeState: []
-    }
-  
-    handleClick = async () => {
-      this.setState({ isLoading: true })
-      const data = await request.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex?perPage=1000&${this.state.searchBy}=${this.state.search}`);
-  
-      this.setState({ 
-        pokeState: data.body.results,
-        isLoading: false,
-       })
+      pokeState: [],
+      currentPage: 1,
+      totalPages: 1
     }
     
-    render() {
-      const { isLoading, pokeState } = this.state;
+    componentDidMount = async () => {
+      const params = new URLSearchParams(this.props.location.search);
+  
+      const searchBy = params.get('searchBy');
+      const page = params.get('page');
+      const search = params.get('search');
       
-      return (
+      if (searchBy && page && search) {
+        await this.setState({
+          searchBy: searchBy,
+          currentPage: page,
+          search: search
+      })
+    }
+      this.makeRequest()
+    }
+    
+    makeRequest = async () => {
+      this.setState({ isLoading: true })
+      
+      const data = await request.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex?page=${this.state.currentPage}&perPage=20&${this.state.searchBy}=${this.state.search}`)
+      
+        await this.setState({
+        pokeState: data.body.results,
+        totalPages: Math.ceil(data.body.count / 20),
+        isLoading: false
+      })
+  
+      const params = new URLSearchParams(this.props.location.search);
+  
+      params.set('search', this.state.search);
+      params.set('searchBy', this.state.searchBy);
+      params.set('page', this.state.currentPage);
+  
+      this.props.history.push('?' + params.toString())    
+    }
+    
+    handleClick = async () => {
+      await this.setState({ currentPage: 1 })
+      await this.makeRequest()
+    }
+    
+    handleChange = (e) => { this.setState({ search: e.target.value })}
+    
+    handleSearchBy = (e) => { this.setState({ searchBy: e.target.value })}
+    
+    handleNextClick = async () => {
+      console.log('clickkkkk')
+      await this.setState({ currentPage: Number(this.state.currentPage) + 1 })
+      await this.makeRequest();
+      
+    }
+    
+    handlePrevClick = async () => { 
+      await this.setState({ currentPage: Number(this.state.currentPage) - 1 })
+      await this.makeRequest();
+    }
+
+    handleSearchBy = (e) => {
+      this.setState({ searchBy: e.target.value })
+    }
+
+    render() {
+
+      const {
+        isLoading,
+        pokeState,
+        currentPage,
+        totalPages,
+        search,
+        searchBy
+      } = this.state;
+  
+    return (
         <div className={styles.main}>
-            <input onChange={(e) => this.setState({ search: e.target.value})} />
-            <select onChange={(e) => { this.setState({ searchBy: e.target.value })} }>
-              <option value='pokemon'>name</option>
-              <option value='type'>type</option>
-              <option value='attack'>attack</option>
-              <option value='defense'>defense</option>
-            </select>
-            <button onClick={this.handleClick}>Find Pokemon!</button>
+            <SearchBar handleClick={this.handleClick} handleChange={this.handleChange} handleSearchBy={this.handleSearchBy} search={search} searchBy={searchBy}/>
+          
             {
-              isLoading 
-                ? <p className={styles.spin}>LOADING</p> 
-                : pokeState.map(poke => <PokeItem pokemon={poke} />)
+            isLoading ? <p>Loading</p> :
+            <PokeList handleNext={this.handleNextClick} handlePrev={this.handlePrevClick} currentPage={currentPage} pokeState={pokeState} totalPages={totalPages}/>
             }
         </div>
       );
     }
   }
-  
